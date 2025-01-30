@@ -10,7 +10,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def send_welcome(message: Message):
-    web_app_url = "https://example.com"
+    web_app_url = "https://ulkov.github.io/tsum_web_app_bot/"
     
     keyboard = InlineKeyboardMarkup(
         inline_keyboard=[
