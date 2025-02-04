@@ -17,6 +17,7 @@
         document.getElementById('sendDataButton').addEventListener('click', () => {
             const data = { name: "John", age: 30 }; // Ваши данные
             tg.sendData(JSON.stringify(data)); // Отправка JSON-строки
+            alert("OK 6");
         });
 
         tg.ready();
