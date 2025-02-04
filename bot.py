@@ -1,14 +1,8 @@
 API_TOKEN = "7553842523:AAEGtGV8tsbyfMhALmbe2jEYMiTPkgGiSN0"
 web_app_url = "https://ulkov.github.io/tsum_web_app_bot/"
 
-from aiogram import Bot, Dispatcher, types, F
-from aiogram.types import (
-    ReplyKeyboardMarkup,
-    KeyboardButton,
-    WebAppInfo,
-    Message,
-    WebAppData,
-)
+from aiogram import Bot, Dispatcher, F
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo, Message
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
