@@ -16,6 +16,7 @@
 
         document.getElementById("sendData").addEventListener("click", () => {
             tg.sendData(JSON.stringify({ message: "Привет из Web App!" }));
+            Telegram.WebApp.sendData(JSON.stringify({ action: "confirm", value: "12345" }));
             alert("OK 4");
         });
     </script>
