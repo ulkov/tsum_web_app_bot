@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tsum web app bot</title>
+    <title>Telegram Web App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Добро пожаловать в Web App!</h1>
-    <button id="sendData">Отправить данные</button>
+    <h1>Добро пожаловать в Web App</h1>
+    <button id="sendDataButton">Отправить данные в бота</button>
 
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand();  // Расширяет Web App на весь экран
 
-        document.getElementById("sendData").addEventListener("click", () => {
-            tg.sendData(JSON.stringify({ message: "Привет из Web App!" }));
-            Telegram.WebApp.sendData(JSON.stringify({ action: "confirm", value: "12345" }));
-            alert("OK 5");
+        // Отправка данных обратно боту
+        document.getElementById('sendDataButton').addEventListener('click', () => {
+            const data = { name: "John", age: 30 }; // Ваши данные
+            tg.sendData(JSON.stringify(data)); // Отправка JSON-строки
         });
+
+        tg.ready();
     </script>
 </body>
 </html>
