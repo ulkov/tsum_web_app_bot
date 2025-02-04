@@ -7,17 +7,16 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Добро пожаловать в Web App</h1>
-    <button id="sendDataButton">Отправить данные в бота</button>
+    <h1>TSUM Web App</h1>
+    <button id="sendDataButton">Send data - 6</button>
 
     <script>
         const tg = window.Telegram.WebApp;
 
-        // Отправка данных обратно боту
         document.getElementById('sendDataButton').addEventListener('click', () => {
-            const data = { name: "John", age: 30 }; // Ваши данные
-            tg.sendData(JSON.stringify(data)); // Отправка JSON-строки
-            alert("OK 6");
+            const data = { name: "John", age: 30 };
+            tg.sendData(JSON.stringify(data));
+            alert("OK - 6");
         });
 
         tg.ready();
