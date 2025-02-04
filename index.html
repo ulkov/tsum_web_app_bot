@@ -4,33 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Department Menu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        ul {
-            list-style: none;
-            padding-left: 20px;
-        }
-        li {
-            margin: 5px 0;
-            cursor: pointer;
-        }
-        .triangle {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
-        }
-        .triangle.expanded {
-            transform: rotate(90deg);
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Hierarchical Menu</h1>
@@ -39,66 +13,6 @@
     </ul>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-        const tg = window.Telegram.WebApp;
-
-        const departments = [
-            {
-                name: "Sales",
-                employees: ["Alice", "Bob", "Charlie"]
-            },
-            {
-                name: "Engineering",
-                employees: ["Dave", "Eve", "Frank"]
-            },
-            {
-                name: "HR",
-                employees: ["Grace", "Heidi", "Ivan"]
-            }
-        ];
-
-        function createMenu(data) {
-            const menu = document.getElementById('menu');
-
-            data.forEach(department => {
-                const departmentItem = document.createElement('li');
-                const triangle = document.createElement('span');
-                triangle.className = 'triangle';
-                triangle.textContent = '\u25B6'; // Unicode for a right-pointing triangle
-
-                const departmentName = document.createElement('span');
-                departmentName.textContent = department.name;
-
-                const employeeList = document.createElement('ul');
-                employeeList.className = 'hidden';
-                department.employees.forEach(employee => {
-                    const employeeItem = document.createElement('li');
-                    employeeItem.textContent = employee;
-
-                    // Send data on employee click
-                    employeeItem.addEventListener('click', (event) => {
-                        event.stopPropagation(); // Prevent triggering parent click events
-                        tg.sendData(JSON.stringify({ department: department.name, employee }));
-                    });
-
-                    employeeList.appendChild(employeeItem);
-                });
-
-                departmentItem.appendChild(triangle);
-                departmentItem.appendChild(departmentName);
-                departmentItem.appendChild(employeeList);
-                menu.appendChild(departmentItem);
-
-                // Toggle employee list on click
-                departmentItem.addEventListener('click', () => {
-                    const isHidden = employeeList.classList.contains('hidden');
-                    employeeList.classList.toggle('hidden', !isHidden);
-                    triangle.classList.toggle('expanded', isHidden);
-                });
-            });
-        }
-
-        createMenu(departments);
-    </script>
+    <script src="menu.js"></script>
 </body>
 </html>
