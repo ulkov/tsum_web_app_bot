@@ -14,9 +14,9 @@
         const tg = window.Telegram.WebApp;
         tg.expand();  // Расширяет Web App на весь экран
 
-        document.getElementById("sendData").addEventListener("click", () => {
-            tg.sendData(JSON.stringify({ message: "Привет из Web App!" }));  // Отправка данных боту
-            alert("OK");
+        document.getElementById("sendData").addEventListener("click", async () => {
+            await tg.sendData(JSON.stringify({ message: "Привет из Web App!" }));
+            alert("OK 2");
         });
     </script>
 </body>
